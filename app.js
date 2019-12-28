@@ -6,10 +6,22 @@ var mongoose = require("mongoose"),
 const app = express();
 
 const port = 1234;
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    process.env.MONGOHQ_URL ||
+    "mongodb://localhost:27017/blog_app",
+  function(err, res) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(res);
+    }
+  },
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 mongoose.set("useFindAndModify", false);
 app.use(
   bodyParser.urlencoded({
