@@ -27,7 +27,7 @@ Since HTML only supports POST and GET methods I've used a npm library called `me
 
 ### Installation
 
-You need to have Node and npm installed to reun the project.
+You need to have Node and npm installed to run the project.
 
 Clone this repo.
 
